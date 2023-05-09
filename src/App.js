@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReactFlow from 'react-flow-renderer';
 
-function App() {
+const elements = [
+  {
+    id: '1',
+    type: 'input',
+    data: { label: 'Input Node' },
+    position: { x: 0, y: 50 },
+  },
+  {
+    id: '2',
+    type: 'default',
+    data: { label: 'Default Node' },
+    position: { x: 150, y: 50 },
+  },
+  {
+    id: '3',
+    type: 'output',
+    data: { label: 'Output Node' },
+    position: { x: 300, y: 50 },
+  },
+  { id: 'e1-2', source: '1', target: '2', label: 'Edge from Input to Default' },
+  { id: 'e2-3', source: '2', target: '3', label: 'Edge from Default to Output' },
+];
+
+const BasicFlow = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ReactFlow elements={elements} />
   );
-}
+};
 
-export default App;
+export default BasicFlow;
